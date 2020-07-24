@@ -135,3 +135,9 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST_USER = "siarheibazyliuk@gmail.com"
+# EMAIL_HOST = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_PASSWORD = ''

@@ -25,14 +25,14 @@ class Event(models.Model):
     date_start = models.DateTimeField(verbose_name='начало события')
     date_stop = models.DateTimeField(verbose_name='конец события', blank=True, null=True)
     reminder = models.DurationField(verbose_name='напомнить за', choices=choice_delta)
-    need_remind = models.BooleanField(verbose_name='напомнить?',default=False)
+    need_remind = models.BooleanField(verbose_name='напомнить?', default=False)
 
     @property
     def reminder4api(self):
         for i in self.choice_delta:
             if self.reminder == i[0]:
                 return i[1]
-            return 'not found'
+        return 'not found'
 
     def __str__(self):
         return self.title
@@ -41,4 +41,3 @@ class Event(models.Model):
         if self.date_stop is None:
             self.date_stop = self.date_start.replace(hour=23, minute=59,second=59)
         super().save(**kwargs)
-

@@ -3,7 +3,7 @@ from os import system
 
 
 app = Celery(
-    'tasks',
+    'task',
     broker = 'redis://redis:6379/0',
     backend = 'redis://redis:6379/0'
 )
@@ -15,7 +15,7 @@ def check():
 
 app.conf.beat_schedule = {
     "task": {
-        "task": "tasks.check",
-        "schedule": 5.0,
+        "task": "task.check",
+        "schedule": 10.0,
     }
 }

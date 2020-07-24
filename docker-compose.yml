@@ -40,7 +40,7 @@ services:
       - ./src:/src
     env_file:
       - db_keys.txt
-    command : ['sh','-c','celery -A tasks worker -P prefork -c 12 -l info']
+    command : ['sh','-c','celery -A task worker -P prefork -c 12 -l info']
 
 
   celery_b:
@@ -50,4 +50,4 @@ services:
     container_name: cel_beat
     volumes:
       - ./src:/src
-    command: ["sh", "-c", "celery beat --app=tasks"]
+    command: ["sh", "-c", "celery beat --app=task"]
