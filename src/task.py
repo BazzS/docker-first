@@ -16,6 +16,6 @@ def check():
 app.conf.beat_schedule = {
     "task": {
         "task": "task.check",
-        "schedule": 10.0,
+        "schedule": 100.0,
     }
 }

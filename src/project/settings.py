@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bookshop',
     'rest_framework',
+    'rest_framework.authtoken',
     'djoser',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,6 +129,9 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }
 
 
@@ -136,8 +140,9 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static/'
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST_USER = "siarheibazyliuk@gmail.com"
-# EMAIL_HOST = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_PASSWORD = ''
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST_USER = "siarheibazyliuk@gmail.com"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = "965723228B"

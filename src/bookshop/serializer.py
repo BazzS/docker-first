@@ -13,7 +13,7 @@ class EventSerializer(ModelSerializer):
     tmp_duration = CharField(source='reminder4api')
     class Meta:
         model = Event
-        fields = ('title','need_remind','date_start','date_stop','tmp_duration')
+        fields = ('title','need_remind','date_start','date_stop','tmp_duration','user_event',)
 
     def save(self,*args,**kwargs):
         #logger.warning(str(self.validated_data))
@@ -21,4 +21,5 @@ class EventSerializer(ModelSerializer):
             if self.validated_data['reminder4api']==item[1]:
                 self.validated_data['reminder']=item[0]
         del self.validated_data["reminder4api"]
+        self.validated_data.update(kwargs)
         super().save(*args,**kwargs)

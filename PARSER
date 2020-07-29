@@ -1,0 +1,6 @@
+from ics import Calendar
+import requests
+
+url = "https://www.officeholidays.com/ics/ics_country.php?tbl_country=Belarus"
+c = Calendar(requests.get(url).text)
+print(c.events)
